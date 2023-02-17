@@ -9,7 +9,7 @@ import UIKit
 ///             this class shouldn't use generics.
 open class UITableViewAdapter: NSObject, Adapter {
     /// The data to be rendered in the list UI.
-    public var data: [Section]
+    open var data: [Section]
 
     /// A closure that to handle selection events of cell.
     open var didSelect: ((SelectionContext) -> Void)?
@@ -154,7 +154,7 @@ extension UITableViewAdapter: UITableViewDelegate {
     }
 
     /// Returns the estimated height for row at specified index path.
-    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return heightForRow(in: tableView, indexPath: indexPath, defaultHeight: tableView.estimatedRowHeight)
     }
 
