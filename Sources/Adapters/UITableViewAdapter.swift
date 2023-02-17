@@ -18,7 +18,7 @@ open class UITableViewAdapter: NSObject, Adapter {
     ///
     /// - Parameters:
     ///   - data: An initial data to be rendered.
-    public init(data: [Section] = []) {
+    public init(data: [Section]) {
         self.data = data
     }
 
