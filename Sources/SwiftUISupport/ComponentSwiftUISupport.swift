@@ -40,8 +40,18 @@ private struct ComponentRepresenting<C: Component>: UIViewRepresentable {
     }
 
     @available(iOS 16.0, *)
-    func sizeThatFits(_ proposal: ProposedViewSize, uiView: UIComponentView, context: Context) -> CGSize? {
-        uiView.intrinsicContentSize
+    func sizeThatFits(
+        _ proposal: ProposedViewSize,
+        uiView: UIComponentView,
+        context: Context
+    ) -> CGSize? {
+        if let width = proposal.width {
+            uiView.bounds.size.width = width
+        }
+        if let height = proposal.height {
+            uiView.bounds.size.height = height
+        }
+        return uiView.intrinsicContentSize
     }
 }
 
