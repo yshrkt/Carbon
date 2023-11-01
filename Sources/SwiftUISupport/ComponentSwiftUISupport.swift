@@ -38,6 +38,11 @@ private struct ComponentRepresenting<C: Component>: UIViewRepresentable {
         uiView.render(component: AnyComponent(component))
         proxy.uiView = uiView
     }
+
+    @available(iOS 16.0, *)
+    func sizeThatFits(_ proposal: ProposedViewSize, uiView: UIComponentView, context: Context) -> CGSize? {
+        uiView.intrinsicContentSize
+    }
 }
 
 private final class UIComponentView: UIView, ComponentRenderable {
