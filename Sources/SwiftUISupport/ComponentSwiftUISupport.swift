@@ -51,7 +51,16 @@ private struct ComponentRepresenting<C: Component>: UIViewRepresentable {
         if let height = proposal.height {
             uiView.bounds.size.height = height
         }
-        return uiView.intrinsicContentSize
+
+        if uiView.intrinsicContentSize != CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric) {
+            return uiView.intrinsicContentSize
+        }
+
+        return uiView.systemLayoutSizeFitting(
+            proposal.replacingUnspecifiedDimensions(by: UIView.layoutFittingCompressedSize),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        )
     }
 }
 
