@@ -45,10 +45,10 @@ private struct ComponentRepresenting<C: Component>: UIViewRepresentable {
         uiView: UIComponentView,
         context: Context
     ) -> CGSize? {
-        if let width = proposal.width {
+        if let width = proposal.width, width.isFinite {
             uiView.bounds.size.width = width
         }
-        if let height = proposal.height {
+        if let height = proposal.height, height.isFinite {
             uiView.bounds.size.height = height
         }
 
