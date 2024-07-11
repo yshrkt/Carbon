@@ -196,6 +196,7 @@ public extension Component where Content: UIView {
     ///   - content: An instance of content to be laid out on top of element.
     ///   - container: A container view to layout content.
     ///                Default is laid out with edge constraints.
+    @MainActor
     func layout(content: Content, in container: UIView) {
         container.addSubviewWithEdgeConstraints(content)
     }
@@ -206,6 +207,7 @@ public extension Component where Content: UIView {
     ///   - content: An instance of content.
     ///
     /// - Returns: A `CGSize` value represents a natural size of the passed content.
+    @MainActor
     func intrinsicContentSize(for content: Content) -> CGSize {
         return content.intrinsicContentSize
     }
@@ -218,6 +220,7 @@ public extension Component where Content: UIViewController {
     ///   - content: An instance of content to be laid out on top of element.
     ///   - container: A container view to layout content.
     ///                Default is laid out with edge constraints.
+    @MainActor
     func layout(content: Content, in container: UIView) {
         container.addSubviewWithEdgeConstraints(content.view)
     }
@@ -228,12 +231,14 @@ public extension Component where Content: UIViewController {
     ///   - content: An instance of content.
     ///
     /// - Returns: A `CGSize` value represents a natural size of the passed content.
+    @MainActor
     func intrinsicContentSize(for content: Content) -> CGSize {
         return content.view.intrinsicContentSize
     }
 }
 
 private extension UIView {
+    @MainActor
     func addSubviewWithEdgeConstraints(_ view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
