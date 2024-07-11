@@ -205,7 +205,6 @@ extension UICollectionViewAdapter: UICollectionViewDelegate {
 }
 
 private extension UICollectionViewAdapter {
-    @MainActor
     func dequeueComponentSupplementaryView(
         ofKind kind: String,
         collectionView: UICollectionView,
