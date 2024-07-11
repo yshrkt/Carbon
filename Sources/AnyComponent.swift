@@ -168,6 +168,8 @@ internal protocol AnyComponentBox {
     func intrinsicContentSize(for content: Any) -> CGSize
 
     func shouldContentUpdate(with next: AnyComponentBox) -> Bool
+
+    @MainActor 
     func shouldRender(next: AnyComponentBox, in content: Any) -> Bool
 
     @MainActor

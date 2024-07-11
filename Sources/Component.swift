@@ -70,7 +70,7 @@ public protocol Component {
     /// - Returns: The referencing size of content to render on the list UI.
     ///            If returns nil, the element of list UI falls back to its default size
     ///            like `UITableView.rowHeight` or `UICollectionViewFlowLayout.itemSize`.
-    @MainActor 
+    @MainActor
     func referenceSize(in bounds: CGRect) -> CGSize?
 
     /// Returns a `Bool` value indicating whether the content should be reloaded.
@@ -92,6 +92,7 @@ public protocol Component {
     ///   - content: An instance of content laid out on the element.
     ///
     /// - Returns: A `Bool` value indicating whether the component should be render again.
+    @MainActor
     func shouldRender(next: Self, in content: Content) -> Bool
 
     /// Layout the content on top of element of the list UI.

@@ -82,7 +82,7 @@ public extension ComponentWrapping {
     ///   - content: An instance of content laid out on the element.
     ///
     /// - Returns: A `Bool` value indicating whether the component should be render again.
-    @inlinable
+    @MainActor @inlinable
     func shouldRender(next: Self, in content: Wrapped.Content) -> Bool {
         return wrapped.shouldRender(next: next.wrapped, in: content)
     }
