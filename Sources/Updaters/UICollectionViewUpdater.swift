@@ -1,4 +1,5 @@
 import UIKit
+import DifferenceKit
 
 /// An updater for managing diffing updates to render data to the `UICollectionView`.
 @MainActor
