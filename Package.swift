@@ -5,13 +5,13 @@ import PackageDescription
 let package = Package(
     name: "Carbon",
     platforms: [
-        .iOS(.v10)
+        .iOS(.v12)
     ],
     products: [
         .library(name: "Carbon", targets: ["Carbon"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ra1028/DifferenceKit.git", .upToNextMinor(from: "1.1.3"))
+        .package(url: "https://github.com/ca-love/DifferenceKit.git", branch: "feature/xcode16")
     ],
     targets: [
         .target(
